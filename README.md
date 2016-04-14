@@ -11,4 +11,4 @@ Mostramos el valor de la variable 'game' dentro de 'total-count'.
 
 > .inner-check::checked { counter-increment: game 20; }
 
-Si este elemento existe. Es decir el input 'inner-check' esta en modo 'checked' incrementará la variable game en 20.
+Si este elemento existe. Es decir el input 'inner-check' esta en modo 'checked' incrementará la variable 'game' en 20.
