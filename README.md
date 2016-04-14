@@ -1,6 +1,8 @@
 # css-counter
 Make a game only with HTML and CSS
 
+![alt tag](http://delnido.es/wp-content/uploads/2016/04/ScreenShot.png)
+
 > body { counter-reset: game; }
 
 Inicializamos a 0 la variable 'game' dentro del ambito de 'body'.
@@ -12,3 +14,5 @@ Mostramos el valor de la variable 'game' dentro de 'total-count'.
 > .inner-check::checked { counter-increment: game 20; }
 
 Si este elemento existe. Es decir el input 'inner-check' esta en modo 'checked' incrementará la variable 'game' en 20.
+
+
