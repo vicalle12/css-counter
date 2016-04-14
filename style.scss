@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+body {
+  counter-reset: game;
+  text-align: center;
+  background: #e4e9d0;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+.game-area {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5em auto;
+  position: relative;
+  padding-left: 0; //list reset
+}
+
+.total-count {
+  font-size: 1.75em;
+  position: absolute;
+  top: 1em;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  z-index: 300;
+}
+
+.total-count::after {
+  content: counter(game);
+}
+
+%target-ring {
+  position: absolute;
+  cursor: crosshair;
+  border-radius: 50%;
+  display: block;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 1;
+  transition: .15s;
+
+  &:focus {
+    outline: none;
+    appearance: none;
+  }
+
+  &:checked {
+    filter: brightness(1);
+    background: #3e95a4;
+
+    &:after {
+      content: '';
+      padding: .5em;
+      margin: 1em 0 0 1.5em;
+      font-size: 2.5em;
+    }
+  }
+}
+
+.inner-check {
+  @extend %target-ring;
+  background: red;
+  top: 50px;
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+
+  &:checked {
+    counter-increment: game 20;
+  }
+
+  &:checked::after {
+    content: '+20';
+  }
+}
+
+.middle-check {
+  @extend %target-ring;
+  background: white;
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+  top: 25px;
+
+  &:checked {
+    counter-increment: game 10;
+    background: #bffff5;
+  }
+
+  &:checked::after {
+    content: '+10';
+  }
+}
+
+.outer-check {
+  @extend %target-ring;
+  background: red;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+
+  &:checked {
+    counter-increment: game 1;
+  }
+
+  &:checked::after {
+    content: '+1';
+  }
+}
